@@ -1,16 +1,20 @@
 /* <!--
-Program name: hw.css
+Program name: patient-form.css
 Author: Prem Kharel
 Date created: 01/28/2026
-Date last edited: The date you submitted it
+Date last edited: 02/22/2026
 Version: 1.0
-Description: This is a styling for the patient regestration form named hw.html.
+Description: This is a styling for the patient regestration form named patient-form.html.
 --> */
 
 td label{
     width: 100px;
 }
 
+#time{
+    position: absolute;
+
+}
 
 body{
     background-color: aqua;
@@ -25,7 +29,7 @@ img{
 header{
     color: white;
     background-color: green;
-    padding: 09px;
+    padding-bottom: 19px;
     text-align:center;
     align-items: center;
     width: 100%;
@@ -48,9 +52,7 @@ footer{
     
     margin: 10px 200px 7px 20px;
 }
-#time{
-    text-align: right;
-}
+
 .name{
     display: flex;
    width: 100;
@@ -76,7 +78,7 @@ footer{
     padding-right: 15px;
 }
 #uid{
-    padding-right: 13px;
+    margin-left: 13px;
 }
 #btn{
     color: blue;

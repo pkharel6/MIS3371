@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
-Program name: hw.html
+Program name: patient-form.html
 Author: Prem Kharel
 Date created: 01/28/2026
-Date last edited: The date you submitted it
+Date last edited: 02/22/2026
 Version: 1.0
 Description: This is a patient regestration form that needs to filled out by patient.
 -->
@@ -11,19 +11,34 @@ Description: This is a patient regestration form that needs to filled out by pat
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Registeration Form </title>
-    <link rel="stylesheet" href="hw.css">
+    <title>Patient Registration Form </title>
+    <link rel="stylesheet" href="patient-form.css">
 </head>
 <body>
     <header>
-        <img src="kmh.png" alt="This is logo for Kharel Medical House">
-        <h1> Kharel Medical House </h1>
+        <table>
+            <tr>
+                <td>
+                    <img 
+                    src="kmh.png" 
+                    alt="This is logo for Kharel Medical House"
+                    >
+                 <td>
+            <h1> Kharel Medical House </h1>
+        </td>
+     <td >
+         <p id="time" > Today is: <span id="todaydate"></span>
+                
+        </td>
+                </td>
+            </tr>
+        </table>
     </header>
-    <p id="time"> Today is: <script> document.write(new Date().toLocaleString()); </script></p>
+    
    
-    <form action="thankyou.html" target="_blank">
+    <form action="thankyou.html" onsubmit="validInput()" target="_blank">
         <fieldset>
-         <table >
+         <table>
       <div >  
         <tr>
             <td>
@@ -33,20 +48,16 @@ Description: This is a patient regestration form that needs to filled out by pat
                 placeholder="Enter your first name"
                 required
                 maxlength="30">
-            </div>
-
+                </div>
             </td>
-       
-            <td>
-                <div class="name" id="mname">
+        <td>
+            <div class="name" id="mname">
                     <label>Middle Initial:</label>
                 <input type="text" 
                 maxlength="1"
                 required>
             </div>
-
-            </td>
-        
+         </td>
             <td>
                 <div class="name" id="mname">
                     <label>Last Name:</label>
@@ -71,7 +82,7 @@ Description: This is a patient regestration form that needs to filled out by pat
         <tr>
             <td>
                <label>Social Security:</label>
-                <input type="text"
+                <input type="password"
                 inputmode="numeric"
                 pattern="[0-9]*"
                 maxlength="11"
@@ -109,6 +120,7 @@ Description: This is a patient regestration form that needs to filled out by pat
         <td>
                 <label>State:</label>
                 <select required>
+    <option value="">Choose State</option>
 	<option value="AL">Alabama</option>
 	<option value="AK">Alaska</option>
 	<option value="AZ">Arizona</option>
@@ -160,6 +172,7 @@ Description: This is a patient regestration form that needs to filled out by pat
 	<option value="WV">West Virginia</option>
 	<option value="WI">Wisconsin</option>
 	<option value="WY">Wyoming</option>
+    <option value="PR">Puerto Rico</option>
 </select>
 
          </td>
@@ -175,8 +188,9 @@ Description: This is a patient regestration form that needs to filled out by pat
     </tr>
         <tr>
             <td>
-                <label>Email Address :</label>
+                <label for="email" >Email Address :</label>
                 <input type="email"
+                id="email"
                 placeholder="name@gmail.com"
                 required
                 maxlength="35">
@@ -206,10 +220,9 @@ Description: This is a patient regestration form that needs to filled out by pat
         <b>Please Describe your Current symptoms here...</b>
     </td>
 </tr>
-
-<td>
-    <textarea id="texta"> </textarea>
-</td>
+    <td>
+         <textarea id="texta"> </textarea>
+    </td>
 <tr>
     <td>
         <label>Check all of the following that apply.</label>
@@ -219,14 +232,22 @@ Description: This is a patient regestration form that needs to filled out by pat
     <input type="checkbox" id="cbox">Covid-19
     <input type="checkbox" id="cbox">Small Pox
     <input type="checkbox" id="cbox">Titanus
+    </td>
+</tr>
+    <tr>
+        <td>
+            <label>Prefferd Langauge:</label>
+            <input type="radio" name="eng"> English
+            <input type="radio" name="eng"> Spanish
+             <input type="radio" name="eng"> Other Language
         </td>
     </tr>
-<tr>
-    <td>
-        <label>Select Your Gender:</label>
-    <input type="radio" name="sex"> Male
-    <input type="radio" name="sex"> Female
-    <input type="radio" name="sex"> Other
+        <tr>
+            <td>
+            <label>Select Your Gender:</label>
+            <input type="radio" name="sex"> Male
+            <input type="radio" name="sex"> Female
+             <input type="radio" name="sex"> Other
     </td>
 </tr>
     <tr>
@@ -254,40 +275,68 @@ Description: This is a patient regestration form that needs to filled out by pat
             value="5" >
         </td>
     </tr>
+    
 <tr>
-    <td>
-        <label id="uid"> User Id:</label>
-    <input type="text" maxlength="20">
+    <td >
+        <label  for="userid" > User Id:</label> 
+    <input type="text" maxlength="20" id="uid">
         </td>
     </tr>
-   <tr>
-<td>
+
+<tr>
+    <td>
     <label> Password:</label>
     <input type="password">
 </td>
     <td>
         <label> Re-enter Password:</label>
-     <input type="password">
-</td> 
+        <input type="password">
+    </td> 
 </tr>
+
+
+
+
+
     <tr>
         <td>
             <button id="btn" type="reset">Clear and Start Over </button>
             <button id="sbtn" type="submit" > Submit the Form </button>
-     
         </td>
     </tr>
-     </table>
-    
-            <div><footer> 
+</table>
+            <div>
+                <footer> 
                 <img src="kmh.png" id="fimg">
-        <p id="fspace"> Kharel Medical House <br> Address: <a href="https://www.google.com/maps/place/4800 +calhoun road" target="_blank">4800 Calhoun Rd, Houston, TX, 77004</a></p>  <a href="https://www.usa.gov/"><p id="fspace">Contact Us </p></a> <a href="https://www.facebook.com/prem.kharel.79/"><p> &nbsp&nbspFollow US </p></a>
-        </footer></div> 
+        <p id="fspace"> Kharel Medical House <br> Address: 
+            <a href="https://www.google.com/maps/place/4800 +calhoun road" 
+            target="_blank">4800 Calhoun Rd, Houston, TX, 77004</a> <br>
+        Post box no: 9999</p>  
+            <a href="https://www.usa.gov/">
+                <p id="fspace">Contact Us </p></a> 
+                <a href="https://www.facebook.com/prem.kharel.79/">
+                    <p> &nbsp&nbspFollow US </p></a>
+        </footer>
+    </div> 
        
         
     
    
     </fieldset>
     </form>
+    <script>
+        const date = new Date().toLocaleString();
+        document.getElementById("todaydate").innerText=date;
+        function validInput(){
+            const email = document.getElementById("email").value;
+            const userid = document.getElementById("uid").value;
+
+            if(email === userid){
+                alert("Error ! User ID and Email cannot be the same.");
+                event.preventDefault();
+            }
+           
+        }
+    </script>
 </body>
 </html>
